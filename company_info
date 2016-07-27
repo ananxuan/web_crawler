@@ -27,22 +27,4 @@ except urllib2.URLError, e:
         print e.code
     if hasattr(e,"reason"):
         print e.reason
-    response = urllib2.urlopen(request)
-    #print response.read()
-    #匹配信息
-    content = response.read().decode('utf-8')
-    pattern = re.compile('''<tr class="qycx2">[\s]+<td>\d+</td>[\s]+
-    <td>[\u4e00-\u9fa5]{0,20}</td>[\s]+<td>[\u4e00-\u9fa5]{0,20}</td>
-    [\s]+<td></td>[\s]+<td>([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}
-    [1-9][0-9]{2}|[1-9][0-9]{3})/(((0[13578]|1[02])/(0[1-9]|[12][0-9]|3[01]))
-    |((0[469]|11)/(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))</td>
-    [\s]+</tr>''',re.S)
-    company_info = re.findall(pattern,content)
-    for company in company_info:
-        print company
-except urllib2.URLError, e:
-    if hasattr(e,"code"):
-        print e.code
-    if hasattr(e,"reason"):
-        print e.reason
-
+   
