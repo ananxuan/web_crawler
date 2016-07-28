@@ -1,0 +1,5 @@
+import urllib2
+
+request = urllib2.Request(url = "http://www.njgs.gov.cn/zxfw/kscx/szqycx/")
+result = urllib2.urlopen(request).read()#result save the data from request
+print result
